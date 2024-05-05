@@ -98,7 +98,7 @@ if submit:
 
         engine = create_engine(
             'postgresql+psycopg2://avnadmin:AVNS_T4uu1xCbxFXHvmDVt63@didarlyzhaz2024-didarlyzhaz2024.e.aivencloud.com:19026/defaultdb')
-        df.to_sql('all_register', if_exists='append', con=engine)
+        df.to_sql('test', if_exists='append', con=engine)
 
     with st.spinner('Формирование отчета'):
         import io
