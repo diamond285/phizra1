@@ -11,8 +11,11 @@ def load_schools():
 password = st.text_input('Введите пароль', type='password')
 
 if password == 'qwerty123!!':
+    school = st.selectbox("Мектепті таңдаңыз / Выберите школу", ['-'] + load_schools())
+
     button = st.button("Сформировать отчет")
-    if button:
+    
+    if button and school == '-':
         with st.spinner('Формирование'):
             import pandas as pd
             import psycopg2
@@ -39,11 +42,7 @@ if password == 'qwerty123!!':
                 file_name='Дидарлы жаз 2024.xlsx',
                 mime='application/vnd.ms-excel'
             )
-else:
-    school = st.selectbox("Мектепті таңдаңыз / Выберите школу", ['-'] + load_schools())
-
-    button = st.button("Сформировать отчет")
-    if button and school != '-':
+    elif button and school != '-':
         with st.spinner('Формирование'):
             import pandas as pd
             import psycopg2
