@@ -16,8 +16,8 @@ levels = ['Қалалық деңгей / Городской уровень',
           'Республикалық деңгей / Республиканский уровень',
           'Халықаралық деңгей / Международный уровень']
 
-option = st.selectbox("Деңгейді таңдаңыз / Выберите уровень", levels, index=None)
-school = st.selectbox("Мектепті таңдаңыз / Выберите школу", load_schools(), index=None)
+option = st.selectbox("Деңгейді таңдаңыз / Выберите уровень", levels)
+school = st.selectbox("Мектепті таңдаңыз / Выберите школу", load_schools())
 
 seb_name = st.text_input('Сайыстың атауы / Название соревнований')
 seb_type = st.text_input('Cпорт түрі / вид спорта')
