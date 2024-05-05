@@ -87,8 +87,22 @@ if submit:
             "Жаныс / Пол": student['gender']
         } for student in students])
 
-
         from sqlalchemy import create_engine
 
-        engine = create_engine('postgresql+psycopg2://avnadmin:AVNS_T4uu1xCbxFXHvmDVt63@didarlyzhaz2024-didarlyzhaz2024.e.aivencloud.com:19026/defaultdb')
+        engine = create_engine(
+            'postgresql+psycopg2://avnadmin:AVNS_T4uu1xCbxFXHvmDVt63@didarlyzhaz2024-didarlyzhaz2024.e.aivencloud.com:19026/defaultdb')
         df.to_sql('all_register', if_exists='append', con=engine)
+
+    with st.spinner('Формирование отчета'):
+        import io
+
+        buffer = io.BytesIO()
+    with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
+        df.to_excel(writer, sheet_name='Участники', index=False)
+        writer.close()
+        download2 = st.download_button(
+            label="Скачать отчет",
+            data=buffer,
+            file_name=f'Дидарлы жаз 2024 {school}.xlsx',
+            mime='application/vnd.ms-excel'
+        )
