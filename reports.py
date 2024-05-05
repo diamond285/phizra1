@@ -27,7 +27,7 @@ if password == 'qwerty123!!':
                                     port=19026)
 
             cur = conn.cursor()
-            cur.execute('select * from all_register')
+            cur.execute('select * from test')
             tmp = cur.fetchall()
             colnames = [desc[0] for desc in cur.description]
             df = pd.DataFrame(tmp, columns=colnames).drop(columns='index')
@@ -54,7 +54,7 @@ if password == 'qwerty123!!':
                                     port=19026)
 
             cur = conn.cursor()
-            cur.execute(f'''select * from all_register where "Мектеп / Школа" = '{school}' ''')
+            cur.execute(f'''select * from test where "Мектеп / Школа" = '{school}' ''')
             tmp = cur.fetchall()
             colnames = [desc[0] for desc in cur.description]
             df = pd.DataFrame(tmp, columns=colnames).drop(columns='index')
