@@ -70,7 +70,6 @@ submit = st.button("Отправить", disabled=not ok)
 
 if submit:
     with st.spinner('Сохранение'):
-        st.code(students)
         import pandas as pd
 
         df = pd.DataFrame([{
@@ -88,7 +87,6 @@ if submit:
             "Жаныс / Пол": student['gender']
         } for student in students])
 
-        st.dataframe(df)
 
         from sqlalchemy import create_engine
 
