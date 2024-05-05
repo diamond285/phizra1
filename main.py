@@ -46,8 +46,13 @@ students = []
 for x in range(nums):
     st.subheader("Қатысушы № {} / Участник № {}".format(x + 1, x + 1))
     student = dict()
-
     student['fullname'] = st.text_input("Аты - жөні / Фамилия имя отчество участника" + ' ' * x)
+
+    cols = st.columns(2)
+    with cols[0]:
+        student['iin'] = st.text_input("ЖСН / ИИН" + ' ' * x)
+    with cols[1]:
+        student['phone'] = st.text_input("Телефон нөмірі / Номер телефона" + ' ' * x)
 
     cols = st.columns(3)
     with cols[0]:
@@ -82,6 +87,8 @@ if submit:
             "Басшының толық аты-жөні / ФИО руководителя": fio_trener,
             "Басшының нөмірі / Номер руководителя": nomer_trener,
             "Аты - жөні / Фамилия имя отчество участника": student['fullname'],
+            "ЖСН / ИИН": student['iin'],
+            "Телефон нөмірі / Номер телефона": student['phone'],
             "Сынып / Класс": student['grade'],
             "Туған жылы / Год рождения": student['year'],
             "Жыныс / Пол": student['gender']
