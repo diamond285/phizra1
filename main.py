@@ -55,7 +55,7 @@ for x in range(nums):
     with cols[1]:
         student["year"] = st.number_input("Туған жылы / Год рождения" + ' ' * x, step=1, min_value=2000, max_value=2024)
     with cols[2]:
-        student["gender"] = st.selectbox("Жаныс / Пол" + ' ' * x, ['Ұл / Юноша', 'Қыз / Девушка'])
+        student["gender"] = st.selectbox("Жыныс / Пол" + ' ' * x, ['Ұл / Юноша', 'Қыз / Девушка'])
     students.append(student)
 
 ok = True
@@ -84,7 +84,7 @@ if submit:
             "Аты - жөні / Фамилия имя отчество участника": student['fullname'],
             "Сынып / Класс": student['grade'],
             "Туған жылы / Год рождения": student['year'],
-            "Жаныс / Пол": student['gender']
+            "Жыныс / Пол": student['gender']
         } for student in students])
 
         from sqlalchemy import create_engine
