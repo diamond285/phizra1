@@ -30,7 +30,7 @@ if option == 'Қалалық деңгей / Городской уровень':
     district = st.selectbox('Аудан / Район', districts)
 
 school = st.selectbox("Мектепті таңдаңыз / Выберите школу", load_schools())
-group = st.text_input('Мектеп топшасы / Подгруппа школы')
+group = st.selectbox('Мектеп топшасы / Подгруппа школы', [x for x in range(1,11)])
 
 sorev = ['Қозгалмалы ойындар / Подвижные игры',
          'Спорттық ойындар / Спортивные игры',
